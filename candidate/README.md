@@ -31,6 +31,6 @@ Test only the supplied local target, its containers and source. Keep it on local
 
 ## Deliverables
 
-Submit a written report and your presentation materials to the coordinator. In the report, explain your plan and rationale, actions and lessons from each round, evidence and reproduction steps, impact and preconditions, confidence and assumptions. Distinguish observations from hypotheses, including failed tests and disproved concerns. Prioritize recommendations and explain what you would test next and why. List tools and AI assistance used, their contributions, and how you checked their output.
+Submit a written report and your presentation materials to the coordinator. In the report, explain your plan and rationale, actions and lessons from each round, evidence and reproduction steps, impact and preconditions, confidence and assumptions. Distinguish observations from hypotheses, including failed tests and disproved concerns. Prioritize recommendations and explain what you would test next and why. List tools and AI assistance used, their contributions, and how you checked their output. A well-supported negative or limited result is a valid outcome; we assess your reasoning and evidence, not the number of findings.
 
 Prepare a 30-minute customer-facing presentation including discussion and questions. Choose your format and explain impact, evidence, confidence, priorities, and next steps to technical and nontechnical listeners. Be ready to defend your approach and assumptions.
