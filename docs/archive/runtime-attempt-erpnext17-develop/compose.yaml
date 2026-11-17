@@ -1,0 +1,35 @@
+services:
+  db:
+    image: mariadb@sha256:d36f18d65a0459510b8b0f643b226a6d299e3206486e2b64ff20754a6d291707
+    environment:
+      MARIADB_ROOT_PASSWORD: disposable
+    command: [--character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --skip-character-set-client-handshake]
+    networks: [target]
+  redis:
+    image: redis@sha256:3f9c6e23ed6bea3b41d0ef709fc164c1a0b7c00d5a21a60e0e9c33ada5496881
+    networks: [target]
+  app:
+    image: cyber-fde-assessment-attempt:local
+    platform: linux/amd64
+    networks: [target]
+    entrypoint: [bash, -c]
+    command:
+      - |
+        set -e
+        bench set-config -g db_host db
+        bench set-config -g redis_cache redis://redis:6379
+        bench set-config -g redis_queue redis://redis:6379
+        for i in $$(seq 1 120); do mariadb-admin ping -h db -u root -pdisposable --silent && break; sleep 2; done
+        bench new-site frontend --mariadb-root-password disposable --admin-password disposable --install-app erpnext --set-default
+        bench --site frontend serve --host 0.0.0.0 --port 8000
+  proxy:
+    image: cyber-fde-assessment-attempt:local
+    platform: linux/amd64
+    networks: [target, ingress]
+    ports: ['127.0.0.1:18880:8000']
+    volumes: ['./proxy.py:/tmp/assessment-proxy.py:ro']
+    entrypoint: [/usr/bin/python3.14, -u, /tmp/assessment-proxy.py]
+networks:
+  target:
+    internal: true
+  ingress: {}
