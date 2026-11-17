@@ -1,8 +1,0 @@
-/orders 200 Northstar False Bluebird False location None bytes 13749
-/invoices 200 Northstar False Bluebird False location None bytes 13754
-/orders/SAL-ORD-2026-00001 200 Northstar True Bluebird False location None bytes 16163
-/orders/SAL-ORD-2026-00002 403 Northstar False Bluebird False location None bytes 8665
-/invoices/ACC-SINV-2026-00001 200 Northstar True Bluebird False location None bytes 16151
-/invoices/ACC-SINV-2026-00002 403 Northstar False Bluebird False location None bytes 8671
-/api/resource/Sales%20Order/SAL-ORD-2026-00002 403 Northstar False Bluebird False location None bytes 321
-/api/resource/Sales%20Invoice/ACC-SINV-2026-00002 403 Northstar False Bluebird False location None bytes 325
